@@ -24,7 +24,7 @@ class HttpServer{
 		}
 		void Start()
 		{
-            signal(SIGPIPE,SIG_IGN);
+                        signal(SIGPIPE,SIG_IGN);
 			while(1)
 			{
 				std::string peer_ip;
@@ -33,8 +33,8 @@ class HttpServer{
 				if(sock>= 0)
 				{
 					std::cout << peer_ip << " : " << peer_port << std::endl; 	
-                    Task t(sock,Entry::HandlerRequest);
-                    singleton::GetInstance()->PushTask(t);  
+                    			Task t(sock,Entry::HandlerRequest);
+                    			singleton::GetInstance()->PushTask(t);  
 					//pthread_t tid;
 					//pthread_create(&tid,NULL,Entry::HandlerRequest,(void*)sockp);
 				}
