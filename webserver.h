@@ -25,23 +25,26 @@ public:
     WebServer();
     ~WebServer();
 
-    void init(int port , string user, string passWord, string databaseName,
-              int log_write , int opt_linger, int trigmode, int sql_num,
-              int thread_num, int close_log, int actor_model);
+    void init(int port ,int opt_linger, int trigmode, int thread_num, int actor_model);
     //线程池
     void thread_pool();
     //数据库池
-    void sql_pool();
-    void log_write();
     void trig_mode();
     void eventListen();
     void eventLoop();
+    //创建定时器
     void timer(int connfd, struct sockaddr_in client_address);
+    //调整定时器链表
     void adjust_timer(util_timer *timer);
+    //处理定时器
     void deal_timer(util_timer *timer, int sockfd);
+    //处理客户数据
     bool dealclinetdata();
+    //处理信号
     bool dealwithsignal(bool& timeout, bool& stop_server);
+    //处理读请求
     void dealwithread(int sockfd);
+    //处理写请求
     void dealwithwrite(int sockfd);
 
 public:
@@ -66,7 +69,6 @@ public:
     int m_OPT_LINGER;//是否优雅下线
     int m_TRIGMode;//ET/LT
     int m_LISTENTrigmode;//ET/LT
-    int m_CONNTrigmode;//ET/LT
 
     //定时器相关
     client_data *users_timer;
