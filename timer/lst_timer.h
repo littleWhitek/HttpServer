@@ -22,7 +22,6 @@
 #include <sys/uio.h>
 
 #include <time.h>
-#include "../log/log.h"
 
 //连接资源结构体成员需要用到定时器类
 //需要提前声明
