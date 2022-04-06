@@ -39,5 +39,5 @@
 
 # 第二版
 ## 功能
-- 使用 **线程池** + **非堵塞**socket epoll + **Reactor**的并发处理模型
+- 使用 **线程池** + **非堵塞**socket + epoll + **Reactor**的并发处理模型
 - 使用状态机解析HTTP请求报文，支持解析GET和POST请求
